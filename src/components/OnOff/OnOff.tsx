@@ -2,28 +2,27 @@ import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
+    on: boolean
+    onChange: (on: boolean)=> void
 }
 
 function OnOff(props: OnOffPropsType) {
 
-    let [mode,setMode] = useState<boolean>(false)
 
 
-    let nameClassGreen = mode ? `${s.green}` : ' ';
-    let nameClassRed = mode? ' ' : `${s.red}`;
+    let nameClassGreen = props.on ? `${s.green}` : ' ';
+    let nameClassRed = props.on ? ' ' : `${s.red}`;
 
-    const changeMode = () => {
-        setMode(!mode)
-    }
+
     return (
         <div>
             <span className={`${s.span} ${nameClassGreen}`}
-                  onClick={() => {setMode(true)}}
+                  onClick={() => {props.onChange(true)}}
             >Onn</span>
             <span className={`${s.span} ${nameClassRed}`}
-                  onClick={() => {setMode(false)}}
+                  onClick={() => {props.onChange(false)}}
             >Off</span>
-            <span className={`${s.circle} ${mode ? nameClassGreen : nameClassRed}`}></span>
+            <span className={`${s.circle} ${props.on ? nameClassGreen : nameClassRed}`}></span>
         </div>
     )
 }
