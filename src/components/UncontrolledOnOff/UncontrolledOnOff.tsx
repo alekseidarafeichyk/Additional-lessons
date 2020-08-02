@@ -3,11 +3,12 @@ import s from './UnControlledOnOff.module.css'
 
 type OnOffPropsType = {
     onChange : (on: boolean) => void
+    defaultOn? : boolean
 }
 
-function UncontrolledOnOff(props: OnOffPropsType) {
+export function UncontrolledOnOff(props: OnOffPropsType) {
 
-    let [mode,setMode] = useState<boolean>(false)
+    let [mode,setMode] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
 
 
     let nameClassGreen = mode ? `${s.green}` : ' ';
@@ -34,5 +35,3 @@ function UncontrolledOnOff(props: OnOffPropsType) {
         </div>
     )
 }
-
-export default UncontrolledOnOff
