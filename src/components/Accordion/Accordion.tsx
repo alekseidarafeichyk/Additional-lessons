@@ -6,7 +6,7 @@ type AccordionPropsType = {
     onChange:(value: boolean) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (<div>
             <AccordionTitle title={props.title} onChange={() => {props.onChange(!props.collapsed)}}/>
             {!props.collapsed && <AccordionBody/> }
@@ -32,5 +32,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-export default Accordion;

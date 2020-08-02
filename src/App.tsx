@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import {RatingValueType} from './components/Rating/Rating';
+import Rating, {RatingValueType} from './components/Rating/Rating';
 import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
+import {OnOff} from './components/OnOff/OnOff';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     return (
         <div className={'App'}>
         <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+        <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
     );
 }
