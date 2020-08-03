@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Rating, {RatingValueType} from './components/Rating/Rating';
-import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
-import {OnOff} from './components/OnOff/OnOff';
+import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOff';
 
 function App() {
 
