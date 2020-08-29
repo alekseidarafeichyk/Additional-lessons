@@ -17,6 +17,5 @@ export const Rating5 = () => <Rating onClick={x=>x} value={5}/>;
 export const RatingChenging = () => {
     let [rating, setRating] = useState<RatingValueType>(5)
 
-
     return <Rating value={rating} onClick={setRating}/>
 }
