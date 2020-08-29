@@ -1,0 +1,44 @@
+.container {
+    margin: 0 auto;
+    width: 300px
+}
+
+.option {
+    border: 1px solid;
+    width: 60px;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.selected {
+    background-color: antiquewhite;
+}
+
+.focus {
+    background-color: beige;
+}
+
+/*_________________*/
+.select span.main {
+    border: 1px solid;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.select .items {
+    /*display: none;*/
+    border: 1px solid ;
+    position: absolute;
+    padding: 5px;
+}
+
+.select .active {
+    display: block;
+}
+
+.item.selected {
+    background-color: blue;
+    color: #fff;
+}
