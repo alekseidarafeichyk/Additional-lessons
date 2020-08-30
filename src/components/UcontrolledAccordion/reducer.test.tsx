@@ -13,4 +13,4 @@ test('should change collapsed to the opposite value', () => {
     let endState = reducer(startState,action)
 
     expect(endState.collapsed).toBeTruthy()
-});
+});0
