@@ -6,7 +6,9 @@ type OnOffPropsType = {
     onChange: (on: boolean)=> void
 }
 
-export function OnOff(props: OnOffPropsType) {
+export const OnOff = React.memo(OnOffSecret)
+
+export function OnOffSecret(props: OnOffPropsType) {
 
 
 

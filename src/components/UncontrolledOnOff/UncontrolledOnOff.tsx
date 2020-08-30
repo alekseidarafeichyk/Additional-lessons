@@ -6,7 +6,9 @@ type OnOffPropsType = {
     defaultOn? : boolean
 }
 
-export function UncontrolledOnOff(props: OnOffPropsType) {
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)
+
+export function UncontrolledOnOffSecret(props: OnOffPropsType) {
 
     let [mode,setMode] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
 

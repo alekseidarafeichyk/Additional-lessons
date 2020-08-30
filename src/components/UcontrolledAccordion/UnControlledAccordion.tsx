@@ -5,7 +5,9 @@ type AccordionPropsType = {
     title: string
 }
 
-export function UncontrolledAccordion(props: AccordionPropsType) {
+export const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
+
+export function UncontrolledAccordionSecret(props: AccordionPropsType) {
     // let [collapsed, setCollapsed] = useState(true)
 
 
