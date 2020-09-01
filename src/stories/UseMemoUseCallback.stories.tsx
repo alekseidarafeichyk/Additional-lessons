@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
     title: 'UseMemo demo'
@@ -77,16 +77,73 @@ export const HelpsToReactMemo = () => {
         return users.filter(u => u.toLowerCase().indexOf('a') > -1);
     }, [users]);
 
-    const addUser = () =>{
+    const addUser = () => {
         const newUsers = [...users, 'Sveta' + new Date().getTime()]
         setUsers(newUsers)
     }
 
 
     return <>
-        <button onClick={() => {setCounter(counter + 1)}}>+</button>
+        <button onClick={() => {
+            setCounter(counter + 1)
+        }}>+
+        </button>
         <button onClick={addUser}>add Users</button>
         {counter}
         <Users users={newArray}/>
+    </>
+}
+
+type BooksSecretPropsType = {
+    addBook: () => void
+}
+
+const BooksSecret = (props: BooksSecretPropsType) => {
+    console.log('Books Secret')
+    return <div>
+        <button onClick={() => {
+            props.addBook()
+        }}>add book
+        </button>
+    </div>
+}
+
+const Books = React.memo(BooksSecret)
+
+
+export const LikeUseCallback = () => {
+    console.log('LikeUseCallback')
+    const [counter, setCounter] = useState(0);
+    const [books, setBooks] = useState(['React', 'Js', 'Css', 'HTML'])
+
+    const newArray = useMemo(() => {
+        return books.filter(u => u.toLowerCase().indexOf('a') > -1);
+    }, [books]);
+
+    // const addBook = () => {
+    //     const newBooks = [...books, 'Angular' + new Date().getTime()]
+    //     setBooks(newBooks)
+    // }
+
+    const memoizedAddBook = useMemo(() => {
+        return () => {
+            const newBooks = [...books, 'Angular' + new Date().getTime()]
+            setBooks(newBooks)
+        }}, [books])
+
+    const memoizedAddBook2 = useCallback(() => {
+            const newBooks = [...books, 'Angular' + new Date().getTime()]
+            setBooks(newBooks)
+        }, [books])
+
+    return <>
+        <button onClick={() => {
+            setCounter(counter + 1)
+        }}>+
+
+        </button>
+        {counter}
+        {/*<Books books={newArray} addBook={addBook}/>*/}
+        <Books  addBook={memoizedAddBook2}/>
     </>
 }
